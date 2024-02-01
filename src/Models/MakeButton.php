@@ -1,6 +1,6 @@
 <?php
 
-namespace Dashboards\Components\Buttons;
+namespace Dashboards\Builder\Models;
 
 class MakeButton
 {
@@ -12,12 +12,14 @@ class MakeButton
     {
         $styles = 'height: 28px;width: 8rem; cursor: pointer;';
 
-        if ($elements['function']) {
-            $elements['function'] = 'onclick=' . $elements['function'] . ';';
+        $elementsFunction = '';
+
+        if (isset($elements['function'])) {
+            $elementsFunction = 'onclick=' . $elements['function'] . ';';
         }
 
         return '<button type="submit" '
-            . $elements['function']
+            . $elementsFunction
             . ' style="'
             . $styles . '">'
             . $elements["name"]
